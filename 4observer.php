@@ -21,7 +21,7 @@
         function delObservers($observer){
             $key = array_search($observer,$this->observers);
             if($key){
-                unset($this->observers[$key]);
+                array_splice($this->observers,$key,1);
             }
             $this->observers = array_values($this->observers);  //重新索引
         }
@@ -29,18 +29,22 @@
 
     //定义另一个类用于观察
     class Girls{
+        private $name;
+        function __construct($name){
+            $this->name = $name;
+        }
         function dongjie(){
-            echo '你的男朋友正在消费，马上冻结他的银行卡';
+            echo $this->name.'，你的男朋友正在消费，马上冻结他的银行卡';
         }
     }
 
 
     $xiaoming = new Man();
-    $xiaohua = new Girls();
-    $xiaoli = new Girls();
+    $xiaohua = new Girls('xiaohua');
+    $xiaoli = new Girls('xiaoli');
     $xiaoming->addObservers($xiaohua);
-    print_r($xiaoming->addObservers($xiaoli));
-
-    // $xiaoming->delObservers($xiaohua);
+    $xiaoming->addObservers($xiaoli);
+    
+    $xiaoming->delObservers($xiaohua);
 
     $xiaoming->buy();

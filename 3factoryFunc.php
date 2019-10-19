@@ -35,7 +35,8 @@
 
     //继承工厂接口的类用于实例化对象
     class FactoryFunc implements Factory{
-        static function createInstance($type=null)
+        //静态方法创建对象
+        static function createInstance($type)
         {
             switch($type){
                 case 'person':

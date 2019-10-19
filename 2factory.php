@@ -31,6 +31,7 @@
 
     //创建工厂类用于创建对象=====>这里是定义一个类
     class Factory{
+        //静态方法创建对象
         static function createInstance($type){
             switch($type){
                 case 'person':
