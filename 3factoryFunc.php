@@ -1,7 +1,8 @@
 <?php
     //3、工厂方法模式  ====> 工厂方法模式与工厂模式
     //最大的区别是，工厂类只提供一个接口，具体实例化的方式交个实现这个工厂接口的子类去实现
-    interface Skill{
+    interface Skill
+    {
         function family();
         function buy();
     }
@@ -29,7 +30,8 @@
     }
 
     //这里只创建工厂接口，具体创建对象的方式交给实现这个接口的子类去实现=====>这里是定义一个接口
-    interface Factory{
+    interface Factory
+    {
         static function createInstance();
     }
 

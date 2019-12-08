@@ -3,7 +3,8 @@
 //将多个函数封装成一个对外公开
 
 //照相机类
-class Camare{
+class Camare
+{
     function open(){
        echo '打开照相机<br>';
     }
@@ -14,7 +15,8 @@ class Camare{
 }
 
 //闪光灯类
-class Light{
+class Light
+{
     function open(){
         echo '打开闪光灯<br>';
      }
@@ -24,8 +26,8 @@ class Light{
      }
 }
 
-class MenMian{
-
+class MenMian
+{
     function start(){
         $camare = new Camare();
         $light = new Light();

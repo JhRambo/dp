@@ -2,15 +2,16 @@
 
 //8.依赖注入
 
-class Luntai{
-
-    function roll(){
-
+class Luntai
+{
+    function roll()
+    {
         echo '轮胎在滚动<br />';
     }
 }
 
-class BMW{
+class BMW
+{
     protected $luntai;  //声明一个成员属性，用来依赖注入
     
     //构造函数用于实例化成员属性
@@ -19,7 +20,8 @@ class BMW{
         $this->luntai = $luntai;
     }
     
-    function run(){
+    function run()
+    {
         //$luntai = new Luntai(); //1.一般场景，类里面new另一个类，耦合度高
         $this->luntai->roll();
         echo '开着宝马吃烤串<br />';

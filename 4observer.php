@@ -1,7 +1,8 @@
 <?php
     //4、观察者模式
     //一个类用于观察另一个类的行为
-    class Man{
+    class Man
+    {
         protected $observers = [];  //类的成员属性
 
         //类的成员方法

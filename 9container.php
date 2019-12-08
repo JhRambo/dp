@@ -2,15 +2,15 @@
 
 //9.容器  结合依赖注入实现
 
-class Luntai{
-
+class Luntai
+{
     function roll(){
-
         echo '轮胎在滚动<br />';
     }
 }
 
-class BMW{
+class BMW
+{
     protected $luntai;  //声明一个成员属性，用来依赖注入
     
     //构造函数用于实例化成员属性
@@ -27,16 +27,19 @@ class BMW{
 }
 
 //定义容器类用于存放类
-class Container{
+class Container
+{
     protected $registers = [];    //声明一个成员属性
 
     //声明一个绑定所属类的方法
-    function bind($name,Closure $register){ //闭包函数
+    function bind($name,Closure $register)
+    { //闭包函数
         $this->registers[$name] = $register;
     }
 
     //获取容器中的对象
-    function make($name){
+    function make($name)
+    {
         $clo = $this->registers[$name];
         return $clo();
     }
@@ -58,5 +61,3 @@ $container->bind('luntai',function(){
 });
 $bmw = new BMW($container->make('luntai'));    //对象传值
 $bmw ->run();
-
-

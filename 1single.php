@@ -1,7 +1,8 @@
 <?php
     //高内聚，低耦合
     //1、单例模式
-    class Dog{
+    class Dog
+    {
         //定义一个静态私有变量用于存放对象
         static private $instance;
         //构造函数用于实例化对象成员属性

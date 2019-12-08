@@ -1,7 +1,8 @@
 <?php
     //2、工厂模式
     //定义一个接口
-    interface Skill{
+    interface Skill
+    {
         function family();
         function buy();
     }

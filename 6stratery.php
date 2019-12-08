@@ -3,26 +3,30 @@
 //多种策略按需执行不同的动作
 
 //定义一个接口
-interface Love{
+interface Love
+{
     function sajiao();
 }
 
 //定义实现接口的类
-class KeAi implements Love{
+class KeAi implements Love
+{
     //实现接口的所有方法
     function sajiao(){
         echo '讨厌，不理你了<br/>';
     }
 }
 
-class Tiger implements Love{
+class Tiger implements Love
+{
     function sajiao(){
         echo '给老娘过来跪舔<br/>';
     }
 }
 
 //定义一个类
-class GirlType {
+class GirlType 
+{
     protected $xingge;  //声明一个成员属性
     function __construct($xingge)
     {
@@ -38,4 +42,4 @@ $keAi = new KeAi(); //需要先实例化对象，下面才能正常传值并策�
 $tiger = new Tiger();
 $girl = new GirlType($keAi);
 $girl = new GirlType($tiger);
-$girl -> sajiao();
+$girl->sajiao();
