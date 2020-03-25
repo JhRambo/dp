@@ -4,25 +4,27 @@
 
 class Luntai
 {
-    function roll(){
-        echo '轮胎在滚动<br />';
+    function roll()
+    {
+        echo '轮胎在滚动' . PHP_EOL;
     }
 }
 
 class BMW
 {
     protected $luntai;  //声明一个成员属性，用来依赖注入
-    
+
     //构造函数用于实例化成员属性
     function __construct($luntai)
     {
         $this->luntai = $luntai;
     }
-    
-    function run(){
+
+    function run()
+    {
         //$luntai = new Luntai(); //1.一般场景，类里面new另一个类，耦合度高
         $this->luntai->roll();
-        echo '开着宝马吃烤串<br />';
+        echo '开着宝马吃烤串' . PHP_EOL;
     }
 }
 
@@ -32,7 +34,7 @@ class Container
     protected $registers = [];    //声明一个成员属性
 
     //声明一个绑定所属类的方法
-    function bind($name,Closure $register)
+    function bind($name, Closure $register)
     { //闭包函数
         $this->registers[$name] = $register;
     }
@@ -56,8 +58,8 @@ class Container
 
 //3、容器方式实现
 $container = new Container();
-$container->bind('luntai',function(){
+$container->bind('luntai', function () {
     return new Luntai();
 });
 $bmw = new BMW($container->make('luntai'));    //对象传值
-$bmw ->run();
+$bmw->run();

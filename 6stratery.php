@@ -12,20 +12,23 @@ interface Love
 class KeAi implements Love
 {
     //实现接口的所有方法
-    function sajiao(){
-        echo '讨厌，不理你了<br/>';
+    function sajiao()
+    {
+        echo '讨厌，不理你了'.PHP_EOL;
     }
 }
 
+//定义实现接口的类
 class Tiger implements Love
 {
-    function sajiao(){
-        echo '给老娘过来跪舔<br/>';
+    function sajiao()
+    {
+        echo '给老娘过来跪舔'.PHP_EOL;
     }
 }
 
 //定义一个类
-class GirlType 
+class GirlType
 {
     protected $xingge;  //声明一个成员属性
     function __construct($xingge)
@@ -33,7 +36,8 @@ class GirlType
         $this->xingge = $xingge;    //构造函数实例化成员
     }
 
-    function sajiao(){
+    function sajiao()
+    {
         $this->xingge->sajiao();
     }
 }
