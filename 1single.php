@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-01-06 16:26:39
+ * @LastEditTime: 2021-01-06 16:26:40
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /dp/1single.php
+ */
     //高内聚，低耦合
     //1、单例模式
     class Dog
@@ -19,8 +27,6 @@
                 return $instance;
             }
         }
-
-
     }
 
     //普通方式创建对象
