@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-10 17:34:53
- * @LastEditTime: 2021-03-10 17:54:21
+ * @LastEditTime: 2021-04-01 18:04:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /dp/9container.php
@@ -75,13 +75,13 @@
  * 为了约束我们先定义一个消息接口
  * Interface Message
  */
-interface  Message
+interface Message
 {
     public function send();
 }
 
 /**
- * 有一个发送邮件的类
+ * 新增一个发送邮件的类实现消息接口
  * Class sendEmail
  */
 class SendEmail implements Message
@@ -94,7 +94,7 @@ class SendEmail implements Message
 }
 
 /**
- *新增一个发送短信的类
+ *新增一个发送短信的类实现消息接口
  * Class sendSMS
  */
 class SendSMS implements Message
@@ -107,7 +107,7 @@ class SendSMS implements Message
 }
 
 /**
- * 这是一个简单的服务容器
+ * 这是一个简单的【服务容器】
  * Class Container
  */
 class Container
@@ -134,47 +134,50 @@ class Container
 }
 
 //创建一个消息工厂
-$message = new  Container();
-//将发送短信注册绑定到工厂里面
-$message->bind('SMS',function (){
+$message = new Container();
+//将发送短信注册绑定到工厂容器
+$message->bind('SMS', function () {
     return new SendSMS();
 });
-//将发送邮件注册绑定到工厂
-$message->bind('EMAIL',function (){
+//将发送邮件注册绑定到工厂容器
+$message->bind('EMAIL', function () {
     return new SendEmail();
 });
-//需要发送短信的时候
+//需要发送短信的时候，从容器里面拿出一个对象调用即可
 $sms = $message->make('SMS');
 echo $sms->send();
 
-//传统模式：
+
+/*********************************传统模式类之间的调用*********************************/
 /**
  * 定义了一个消息类
- * Class Message 
+ * Class Message
  */
-// class Message
-// {
-//   public function send()
-//   {
-//       return 'send email';
-//   }
-// }
+class Message
+{
+    public function send()
+    {
+        return 'send email';
+    }
+}
 
-// /**
-//  * 订单产生的时候 需要发送消息
-//  */
-// class Order
-// {
-//     protected $messager = '';
-//     function __construct()
-//     {
-//         $this->messager = new Message();
-//     }
+/**
+ * 订单产生的时候 需要发送消息
+ */
+class Order
+{
+    protected $messager = '';
+    public function __construct()
+    {
+        //实例化消息类
+        $this->messager = new Message();
+    }
 
-//     public function sendMsg()
-//     {
-//         return $this->messager->send();
-//     }
-// }
-// $order = new Order();
-// echo $order->sendMsg();
+    //发送短信
+    public function sendMsg()
+    {
+        return $this->messager->send();
+    }
+}
+$order = new Order();
+echo $order->sendMsg();
