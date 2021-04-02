@@ -1,6 +1,14 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-04-02 17:02:08
+ * @LastEditTime: 2021-04-02 17:02:15
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /dp/7menmian.php
+ */
 //7、门面模式
-//将多个函数封装成一个对外公开
+//将多个函数封装成一个对外公开的函数
 
 //照相机类
 class Camare
