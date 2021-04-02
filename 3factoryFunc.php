@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: your name
+ * @Date: 2021-04-02 16:59:31
+ * @LastEditTime: 2021-04-02 16:59:31
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /dp/3factoryFunc.php
+ */
 //3、工厂方法模式  ====> 工厂方法模式与工厂模式
 //最大的区别是，工厂类只提供一个接口，具体实例化的方式交个实现这个工厂接口的子类去实现
 interface Skill
@@ -41,7 +49,7 @@ interface Factory
 class FactoryFunc implements Factory
 {
     //静态方法创建对象
-    static function createInstance($type = null)
+    static function createInstance($type = '')
     {
         switch ($type) {
             case 'person':
