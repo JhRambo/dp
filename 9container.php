@@ -149,35 +149,35 @@ echo $sms->send();
 
 
 /*********************************传统模式类之间的调用*********************************/
-/**
- * 定义了一个消息类
- * Class Message
- */
-class Message
-{
-    public function send()
-    {
-        return 'send email';
-    }
-}
+// /**
+//  * 定义了一个消息类
+//  * Class Message
+//  */
+// class Message
+// {
+//     public function send()
+//     {
+//         return 'send email';
+//     }
+// }
 
-/**
- * 订单产生的时候 需要发送消息
- */
-class Order
-{
-    protected $messager = '';
-    public function __construct()
-    {
-        //实例化消息类
-        $this->messager = new Message();
-    }
+// /**
+//  * 订单产生的时候 需要发送消息
+//  */
+// class Order
+// {
+//     protected $messager = '';
+//     public function __construct()
+//     {
+//         //实例化消息类
+//         $this->messager = new Message();
+//     }
 
-    //发送短信
-    public function sendMsg()
-    {
-        return $this->messager->send();
-    }
-}
-$order = new Order();
-echo $order->sendMsg();
+//     //发送短信
+//     public function sendMsg()
+//     {
+//         return $this->messager->send();
+//     }
+// }
+// $order = new Order();
+// echo $order->sendMsg();
