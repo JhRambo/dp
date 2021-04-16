@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-02 16:44:03
- * @LastEditTime: 2021-04-02 16:54:40
+ * @LastEditTime: 2021-04-16 15:45:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /dp/8di.php
@@ -67,7 +67,7 @@
 
 
 //定义轮胎类
-class LunTai 
+class LunTai
 {
     //定义轮胎滚动的方法
     public function roll()
@@ -77,20 +77,22 @@ class LunTai
 }
 
 //定义一个具体车辆的类
-class BMW 
+class BMW
 {
     protected $sx;
+    //构造函数用于初始化变量
     public function __construct($class = '')
     {
         $this->sx = $class;
     }
-    //定义一个具体运行的方法 
+    //定义一个具体运行的方法
     public function run()
     {
         echo $this->sx->roll();
         return '开着宝马吃烤串';
-    } 
+    }
 }
 
+//依赖注入轮胎类，实现解耦
 $cc = new BMW(new LunTai());
 echo $cc->run();
